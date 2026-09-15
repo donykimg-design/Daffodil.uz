@@ -12,57 +12,35 @@ resizeCanvas();
 
 class Butterfly {
     constructor() {
-        this.resetPosition();
+        this.x = Math.random() * width;
+        this.y = Math.random() * height;
         this.size = Math.random() * 8 + 8; // Haqiqiy kapalak hajmi
         this.angle = Math.random() * Math.PI * 2;
-        this.speed = Math.random() * 1.5 + 0.5;
-        this.flapSpeed = Math.random() * 0.4 + 0.2;
+        this.speed = Math.random() * 1.2 + 0.5; // Doimiy silliq uchish
+        this.flapSpeed = Math.random() * 0.08 + 0.04; // SEKIN va O'TA NAFIS qanot qoqish
         this.flapPhase = Math.random() * Math.PI * 2;
         this.opacity = Math.random() * 0.5 + 0.5;
-
-        // Qo'nish holati (maysalarga xos dam olish)
-        this.isLanding = false;
-        this.landTimer = 0;
-    }
-
-    resetPosition() {
-        this.x = Math.random() * width;
-        // Asosan pastki qism (0.4 dan pastda, romashkalarga yaqin)
-        this.y = height * 0.45 + Math.random() * (height * 0.55);
     }
 
     update() {
-        if (this.isLanding) {
-            this.landTimer--;
-            this.flapPhase += this.flapSpeed * 0.2; // Sekinlashtirilgan qoqish
-            if (this.landTimer <= 0) {
-                this.isLanding = false; // Yana uchadi
-                this.angle = (Math.random() - 0.5) * Math.PI; // Tepa-past
-            }
-        } else {
-            this.x += Math.cos(this.angle) * this.speed;
-            this.y += Math.sin(this.angle) * this.speed;
-            this.flapPhase += this.flapSpeed;
+        this.x += Math.cos(this.angle) * this.speed;
+        this.y += Math.sin(this.angle) * this.speed;
+        this.flapPhase += this.flapSpeed;
 
-            // Silliq yo'nalish o'zgarishi
-            this.angle += (Math.random() - 0.5) * 0.2;
+        // Silliq va chiroyli yo'nalish o'zgarishi
+        this.angle += (Math.random() - 0.5) * 0.1;
 
-            // Agar osmonga chiqa boshlasa, maysaga (pastga) qaytarish
-            if (this.y < height * 0.4) {
-                this.angle += 0.5;
-            }
+        // Ekrandan barcha yo'nalishda uzluksiz uchib o'tish (g'oyib bo'lmaydi)
+        if (this.x > width + 50) {
+            this.x = -50;
+        } else if (this.x < -50) {
+            this.x = width + 50;
+        }
 
-            // Tasodifan qo'nib olishi
-            if (Math.random() < 0.005) {
-                this.isLanding = true;
-                this.landTimer = Math.random() * 100 + 50;
-            }
-
-            // Ekrandan chiqsa, ro'parasidan kiradi
-            if (this.x > width + 50) this.x = -50;
-            else if (this.x < -50) this.x = width + 50;
-
-            if (this.y > height + 50) this.y = height * 0.45;
+        if (this.y > height + 50) {
+            this.y = -50;
+        } else if (this.y < -50) {
+            this.y = height + 50;
         }
     }
 

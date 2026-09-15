@@ -8,7 +8,6 @@
 }
 
 body {
-    /* Asosiy rasm (qasr va osmon qismi) */
     background: url('bg.jpg') center 35% / cover no-repeat fixed;
     background-color: #000;
     color: #ffffff;
@@ -17,23 +16,18 @@ body {
     overflow: hidden;
     position: relative;
     margin: 0;
+    /* Xira qilmasdan faqat kamerani yuqoriga/pastga chiroyli harakatlantirish */
+    animation: cameraPan 20s ease-in-out infinite alternate;
 }
 
-/* Pastki maydon (maysalar) silliq shamol effekti uchun ayrim qatlam */
-#grass-wind {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 55%;
+@keyframes cameraPan {
+    0% {
+        background-position: center 35%;
+    }
 
-    background: url('bg.jpg') center 35% / cover no-repeat fixed;
-    z-index: 1;
-
-    filter: url('#gentle-breeze');
-
-    -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 20%);
-    mask-image: linear-gradient(to bottom, transparent 0%, black 20%);
+    100% {
+        background-position: center 38%;
+    }
 }
 
 #nature-canvas {
@@ -49,10 +43,17 @@ body {
 /* Telefonlar uchun mobil responsiv */
 @media (max-width: 768px) {
     body {
-        background-position: 65% center;
+        background-position: 58% center;
+        animation: cameraPanMobile 20s ease-in-out infinite alternate;
+    }
+}
+
+@keyframes cameraPanMobile {
+    0% {
+        background-position: 55% center;
     }
 
-    #grass-wind {
-        background-position: 65% center;
+    100% {
+        background-position: 62% center;
     }
 }
