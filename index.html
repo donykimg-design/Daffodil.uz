@@ -1,61 +1,18 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="uz">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Daffodil</title>
-    <!-- Brauzer tepasidagi Favicon (Qolda chizilgan HAQIQIY Daffodil/G'uncha SVG) -->
-    <link rel="icon" type="image/svg+xml"
-        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M 50 100 Q 60 60 55 45' fill='none' stroke='%2316a34a' stroke-width='9' stroke-linecap='round'/%3E%3Cpath d='M 55 45 Q 60 15 50 8 Q 40 15 55 45' fill='%23fbf08a'/%3E%3Cpath d='M 55 45 Q 85 25 90 40 Q 95 60 55 45' fill='%23fbf08a'/%3E%3Cpath d='M 55 45 Q 90 70 80 85 Q 70 95 55 45' fill='%23fbf08a'/%3E%3Cpath d='M 55 45 Q 30 75 25 65 Q 20 50 55 45' fill='%23fbf08a'/%3E%3Cpath d='M 55 45 Q 25 25 10 35 Q 5 45 55 45' fill='%23fbf08a'/%3E%3Cpath d='M 55 45 L 15 15 C 10 25, 20 40, 30 45 L 55 45' fill='%23f59e0b'/%3E%3Cellipse cx='22' cy='28' rx='14' ry='6' transform='rotate(-40 22 28)' fill='%23fbbf24' stroke='%23d97706' stroke-width='2'/%3E%3C/svg%3E">
-    <style>
-        body,
-        html {
-            margin: 0;
-            padding: 0;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            background-color: #000;
-        }
-
-        /* Video Orqa fon (Responsive - Telefon va PC uchun mos) */
-        .video-container {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            z-index: 1;
-        }
-
-        /* Video tegidan foydalanishda object-fit: cover super qulay! */
-        .video-container video {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            pointer-events: none;
-            /* Foydalanuvchi videoni bexosdan to'xtata olmasligi uchun */
-        }
-
-        @media (max-width: 768px) {
-            .video-container video {
-                object-position: 45% center;
-                /* Asosiy gulni markazlashtirish */
-            }
-        }
-    </style>
+    <!-- Old site SVG favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M 50 100 Q 60 60 55 45' fill='none' stroke='%2316a34a' stroke-width='9' stroke-linecap='round'/%3E%3Cpath d='M 55 45 Q 60 15 50 8 Q 40 15 55 45' fill='%23fbf08a'/%3E%3Cpath d='M 55 45 Q 85 25 90 40 Q 95 60 55 45' fill='%23fbf08a'/%3E%3Cpath d='M 55 45 Q 90 70 80 85 Q 70 95 55 45' fill='%23fbf08a'/%3E%3Cpath d='M 55 45 Q 30 75 25 65 Q 20 50 55 45' fill='%23fbf08a'/%3E%3Cpath d='M 55 45 Q 25 25 10 35 Q 5 45 55 45' fill='%23fbf08a'/%3E%3Cpath d='M 55 45 L 15 15 C 10 25, 20 40, 30 45 L 55 45' fill='%23f59e0b'/%3E%3Cellipse cx='22' cy='28' rx='14' ry='6' transform='rotate(-40 22 28)' fill='%23fbbf24' stroke='%23d97706' stroke-width='2'/%3E%3C/svg%3E">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
+    <!-- Jonli Animatsion Kapalaklar (Canvas doimiy chizadi) -->
+    <canvas id="nature-canvas"></canvas>
 
-    <!-- Mahalliy (D diskdagi) video orqa fon, qo'shimcha yozuvlarsiz -->
-    <div class="video-container">
-        <video src="daffodil_bg.mp4" autoplay muted loop playsinline>
-        </video>
-    </div>
-
+    <script src="script.js"></script>
 </body>
-
 </html>
