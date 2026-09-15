@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Outfit', sans-serif;
+}
+
+body {
+    /* Asosiy rasm (qasr va osmon qismi) */
+    background: url('bg.jpg') center 35% / cover no-repeat fixed;
+    background-color: #000;
+    color: #ffffff;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    position: relative;
+    margin: 0;
+}
+
+/* Pastki maydon (maysalar) silliq shamol effekti uchun ayrim qatlam */
+#grass-wind {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 55%;
+
+    background: url('bg.jpg') center 35% / cover no-repeat fixed;
+    z-index: 1;
+
+    filter: url('#gentle-breeze');
+
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 20%);
+    mask-image: linear-gradient(to bottom, transparent 0%, black 20%);
+}
+
+#nature-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 10;
+}
+
+/* Telefonlar uchun mobil responsiv */
+@media (max-width: 768px) {
+    body {
+        background-position: 65% center;
+    }
+
+    #grass-wind {
+        background-position: 65% center;
+    }
+}
